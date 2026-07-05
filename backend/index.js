@@ -2,6 +2,7 @@ import connectDB from "./config/database.js";
 import config from "./config/config.js";
 import express, { urlencoded } from "express";
 import path from "path";
+import cors from "cors";
 import cookieParser from "cookie-parser";
 import userRoutes from "./routes/userRoutes.js";
 import categoryRoutes from "./routes/categoryRoutes.js";
@@ -12,6 +13,13 @@ import orderRoutes from "./routes/orderRoutes.js";
 await connectDB();
 
 const app = express();
+
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
