@@ -16,7 +16,10 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin:[ 
+      "http://localhost:5173",
+      "https://e-commerce-eight-wheat-43.vercel.app/login",
+    ],
     credentials: true,
   })
 );
